@@ -1,0 +1,11 @@
+nginx_server:
+  image: nginx
+  links:
+   - web
+  volumes:
+   - ./loadbalancer:/etc/nginx/conf.d
+  ports:
+   - "80:80"
+
+web:
+  image: kitematic/hello-world-nginx
