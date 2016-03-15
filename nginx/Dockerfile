@@ -35,3 +35,9 @@ RUN     service nginx restart
 RUN     chkconfig nginx on
 RUN     service php-fpm restart
 RUN     chkconfig php-fpm on
+
+# Docker側でlistenするポート番号を指定
+EXPOSE  80 22
+
+# Launch nginx when launching the container
+CMD ["nginx", "-g", "daemon off;"]
