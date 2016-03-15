@@ -2,10 +2,15 @@ FROM    centos:centos6
 
 MAINTAINER  thangnvbkhn@gmail.com
 
-# install common packages
-RUN     yum -y install wget curl sudo passwd
+RUN cp -p /usr/share/zoneinfo/Japan /etc/localtime
 
-# install epel common for installing remi repo
+# Install common packages
+RUN     yum -y install wget curl sudo passwd git
+
+# Install mysql command line
+RUN     yum -y install mysql
+
+# Install epel common for installing remi repo git
 RUN     yum -y install epel*
 
 ADD     remi-release-6.rpm  /usr/local/src/remi-release-6.rpm
