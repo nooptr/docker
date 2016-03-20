@@ -13,4 +13,4 @@ docker run -it -d --name mysql5.6 -p 3306:3306 -e MYSQL_USER=thang -e MYSQL_PASS
 cd $base_dir/nginx
 docker build --no-cache=true --rm=true -t nginx .
 docker rm -f nginx
-docker run -it -d --name nginx -p 8081:80 --link mysql5.6:db nginx
+docker run -it -d --name nginx -p 40022:22 -p 8081:80 --link mysql5.6:db nginx
