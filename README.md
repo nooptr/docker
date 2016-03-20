@@ -16,14 +16,14 @@ mysql5.6                      latest              4cb799ad30cf        22 seconds
 
 DBイメージからコンテナを作る
 ```
-$ docker run -it -d -p 3306:3306 -e MYSQL_USER=thang -e MYSQL_PASSWORD=thang -e MYSQL_ROOT_PASSWORD=thang mysql5.6
+$ docker run -it -d --name mysql5.6 -p 3306:3306 -e MYSQL_USER=thang -e MYSQL_PASSWORD=thang -e MYSQL_ROOT_PASSWORD=thang mysql5.6
 ```
 
 DBコンテンナが作成されているか確認
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-bf50eb6f9c8e        mysql5.6     "/entrypoint.sh mysql"   11 minutes ago      Up 11 minutes       0.0.0.0:3306->3306/tcp   hopeful_mayer
+bf50eb6f9c8e        mysql5.6     "/entrypoint.sh mysql"   11 minutes ago      Up 11 minutes       0.0.0.0:3306->3306/tcp   mysql5.6
 ```
 
 DBへアクセスできたか確認。サーバへアクセスするには、`exec`コマンドを使う
